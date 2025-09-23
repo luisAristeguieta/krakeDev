@@ -1,3 +1,8 @@
+saludar = function(){
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido")
+}
+
 recuperarTexto = function(idComponente){
     let valorIngresado;
     let componente = document.getElementById(idComponente);
