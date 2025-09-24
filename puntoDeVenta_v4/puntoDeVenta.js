@@ -8,7 +8,8 @@ calcularValorTotal = function () {
     //variables para almacenar los retornos de las funciones
     let valorSubtotal = calcularSubtotal(precioProducto,cantidad);
     mostrarTexto("lblSubtotal", valorSubtotal);
-    let valorDescuento = (valorSubtotal * (porcentajeDescuento/100));
+    let valorDescuento = calcularValorDescuento(valorSubtotal,porcentajeDescuento);
+    mostrarTexto("lblDescuento", valorDescuento);
     let valorIVA = ((valorSubtotal - valorDescuento) * 0.12);
     let valorTotal = valorSubtotal - valorDescuento + valorIVA;
 
