@@ -5,6 +5,7 @@ saludar = function(){
     let estatura = recuperarFloat("txtEstatura");
     let mensajeBienvenida = "Bienvenido " + nombre + " " + apellido;
     mostrarTexto("lblResultado",mensajeBienvenida);
+    mostrarImagen("img","./imagenes/saludo1.gif");
 }
 
 recuperarTexto = function(idComponente){
@@ -29,4 +30,9 @@ recuperarFloat = function(idComponente){
 mostrarTexto = function(idComponente,mensaje){
     let componente = document.getElementById(idComponente);
     componente.innerText = mensaje;
+}
+
+mostrarImagen = function(idComponente,rutaImagen){
+    let componente = document.getElementById(idComponente);
+    componente.src = rutaImagen;
 }
