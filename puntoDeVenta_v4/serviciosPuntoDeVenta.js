@@ -12,3 +12,8 @@ calcularIva = function(monto){
     let iva= monto * 0.12;
     return iva;
 }
+
+calcularTotal = function(subtotal,descuento,iva){
+    let total = subtotal -descuento + iva;
+    return total;
+}
