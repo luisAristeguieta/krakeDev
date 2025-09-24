@@ -15,14 +15,8 @@ calcularValorTotal = function () {
     mostrarTexto("lblValorIVA", valorIVA);
     let valorTotal = calcularTotal(valorSubtotal,valorDescuento,valorIVA);
     mostrarTexto("lblTotal", valorTotal);
-
-
-    //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
-    /*
-        Ejemplo: 
-            Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
-        Si funciona, hacer un commit
-    */
+    mostrarTexto("lblResumen", "Valor a pagar por " + cantidad +" "+ nombreProducto + "   con " + porcentajeDescuento
+        + "% de descuento: USD " + valorTotal);
 
 }
 limpiar = function () {
