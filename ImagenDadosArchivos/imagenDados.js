@@ -1,8 +1,19 @@
+let puntos = 0;
+let lanzamientos = 5;
+
+
+
 jugar=function(){
     let resultado = lanzarDado();
     console.log(resultado);
     mostrarImagenDado(resultado);
-   
+    mostrarPuntos(resultado);
+
+}
+
+mostrarPuntos = function(resultado){
+    puntos = puntos + resultado;
+    console.log("Los puntos se van sumando :  " + puntos)
 }
 
 mostrarImagenDado = function(valorDado){
