@@ -1,19 +1,36 @@
 let puntos = 0;
 let lanzamientos = 5;
 
-
-
 jugar=function(){
     let resultado = lanzarDado();
-    console.log(resultado);
     mostrarImagenDado(resultado);
-    mostrarPuntos(resultado);
-
+    calcularPuntos(resultado);
+    calcularLanzamientos();
+    if (puntos > 20 || lanzamientos == 0){
+        limpiar();
+    }
 }
 
-mostrarPuntos = function(resultado){
+calcularPuntos = function(resultado){
     puntos = puntos + resultado;
-    console.log("Los puntos se van sumando :  " + puntos)
+    cambiarTexto ("txtPuntos",puntos);
+    if (puntos>20){
+        cambiarTexto("lblResultado", "Has Ganados, Superaste los 20 Puntos tienes: " + puntos);
+    }
+}
+
+calcularLanzamientos = function(){
+    lanzamientos = lanzamientos -1
+    cambiarTexto ("txtLanzamientos",lanzamientos);
+    if (lanzamientos == 0){
+        cambiarTexto("lblResultado", "Has Perdido, Superaste los numeros de intentos");
+    }
+}
+
+limpiar = function(){
+    cambiarTexto("txtPuntos", puntos=0)
+    cambiarTexto("txtLanzamientos", lanzamientos=5)
+    cambiarImagen("imagenDados","")
 }
 
 mostrarImagenDado = function(valorDado){
