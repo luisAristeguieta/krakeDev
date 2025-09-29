@@ -47,3 +47,84 @@ calcularDescuento = function(precio,cantidad){
     let valorDescuento = subtotal - (subtotal * descuento);
     return valorDescuento;
 }
+
+// Ejercicio # 4 Funcion determinarColesterolLDl
+let edad = 23;
+determinarColesterolLDl = function(nivelColesterol){
+    let colesterolLDL;
+    if ((edad < 19 && nivelColesterol < 110) || (edad >=20 && nivelColesterol < 100)){
+        colesterolLDL = "Nivel saludable";
+    } else {
+        colesterolLDL = "Nivel No Saludable";
+    }
+    return colesterolLDL;
+}
+
+// Ejercicio # 5 validarClave
+validarClave = function(clave){
+    if (clave.length >= 8 && clave.length <= 16){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Ejercicio # 6 Funcion esMayuscula
+esMayuscula = function (caracter){
+    let evaluarCaracter;
+    if (caracter.charCodeAt() >= 65 && caracter.charCodeAt() <= 90){
+        evaluarCaracter = true;
+    } else {
+        evaluarCaracter = false;
+    }
+    return evaluarCaracter;
+}
+
+// Ejercicio # 7 Funcion esMinuscula
+esMinuscula = function(caracter){
+    let evaluarCaracter;
+    if ((caracter.charCodeAt() >= 97 && caracter.charCodeAt() <= 122) || (caracter.charCodeAt() == 160) 
+    || (caracter.charCodeAt() == 130) || (caracter.charCodeAt() == 161) || (caracter.charCodeAt() == 162) 
+    || (caracter.charCodeAt() == 163) ) {
+        evaluarCaracter = true;
+    } else {
+        evaluarCaracter = false;
+    }
+    return evaluarCaracter;
+}
+
+// Ejericio # 8 Funcion  esDigito
+esDigito = function(caracter){
+    if (caracter.charCodeAt()>=48 && caracter.charCodeAt()<=57){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Ejericio # 9 Funcion darPermiso
+darPermiso = function(notaMatematica,notaFisica,notaGeometria){
+    if (notaMatematica>90 || notaFisica >90 || notaGeometria >90){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Ejericio # 10 Funcion otorgarPermiso
+otorgarPermiso = function(notaMatematica,notaFisica,notaGeometria){
+    if ((notaMatematica>90 || notaFisica> 90) && notaGeometria>80){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Ejericio # 11 dejarSalir
+dejarSalir = function(notaMatematica,notaFisica,notaGeometria){
+    if ((notaMatematica >90 || notaFisica>90 || notaGeometria >90 ) && (notaFisica>notaMatematica)){
+        return true;
+    } else {
+        return false;
+    }
+}
