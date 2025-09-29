@@ -15,5 +15,17 @@ calcularTasaInteres = function(ingresoAnual){
         }   else {
             valorTasa = 12;
         }
-    return valorTasa
+    return valorTasa;
+}
+// Ejercicio # 2 Funcion calcularCapacidadDePago
+
+calcularCapacidadDePago = function(edad,ingresos,egresos){
+    let valorCuota;
+    let sobra = ingresos-egresos;
+    if (edad > 50 ){
+        valorCuota = sobra * 0.3;
+    } else {
+        valorCuota = sobra * 0.4;
+    }
+    return valorCuota;
 }
