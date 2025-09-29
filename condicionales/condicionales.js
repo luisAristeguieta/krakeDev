@@ -29,3 +29,21 @@ calcularCapacidadDePago = function(edad,ingresos,egresos){
     }
     return valorCuota;
 }
+
+// Ejercicio # 3 Funcion calcularDescuento
+
+calcularDescuento = function(precio,cantidad){
+    let subtotal = precio * cantidad;
+    let descuento;
+        if (cantidad < 3){
+            descuento = 0;
+        } else if (cantidad >= 3 && cantidad <= 5){
+            descuento = 0.02;
+        } else if (cantidad >= 6 && cantidad <= 11){
+            descuento = 0.03;
+        } else {
+            descuento = 0.04;
+        }
+    let valorDescuento = subtotal - (subtotal * descuento);
+    return valorDescuento;
+}
