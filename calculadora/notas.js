@@ -79,7 +79,8 @@ calcular = function () {
     nota2 = recuperarFloat("txtNota2");
     nota3 = recuperarFloat("txtNota3");
 
-    if (esnotaValida(nota1,"lblError1") & esnotaValida(nota2,"lblError2") & esnotaValida(nota3,"lblError3")) {
+    if (esnotaValida(nota1, "lblError1") & esnotaValida(nota2, "lblError2") & esnotaValida(nota3, "lblError3")) {
+        // anidacion con una sola & para que hagan validacion individual en cada caja de Texto
         resultado = calcularPromedio(nota1, nota2, nota3);
         resultadoFormato = resultado.toFixed(2);
         mostrarTexto("lblResultado", resultadoFormato);
@@ -89,17 +90,21 @@ calcular = function () {
 }
 
 esnotaValida = function (nota, idComponente) {
-        if (isNaN(nota)) {
-            mostrarTexto(idComponente, "Debe Ingresar un numero");
-            return false;
-        } else {
-            if (nota>=0 && nota <=10){
-            mostrarTexto(idComponente,"");
-            return true;
-            } else {
-                mostrarTexto(idComponente,"El numero debe estar entre 0 y 10")
-            }
-        }
+    let hayErrores = false  // Se busca agrupar los retornos para que no haya muchos true y false a la inversa.
+
+    if (isNaN(nota)) {
+        mostrarTexto(idComponente, "Debe Ingresar un numero");
+        hayErrores = true; // se reasigna la variable de forma opuesta, comenzando en false, aca pasaria opuesto.
+    }
+    if (nota < 0 || nota > 10) { // Curbrir el rango de afuera / se reasigna la variable de forma opuesta.
+        mostrarTexto(idComponente, "El numero debe estar entre 0 y 10");
+        hayErrores = true;
+    }
+    if (hayErrores == false) {
+        mostrarTexto(idComponente, "")
+    }
+
+    return !hayErrores; // returno el inverso eso significa ! 
 }
 
 
