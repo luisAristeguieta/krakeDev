@@ -1,30 +1,101 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="puntoDeVenta.css" />
         <script src="utilitarios.js"></script>
         <script src="serviciosPuntoDeVenta.js"></script>
         <script src="puntoDeVenta.js"></script>
     </head>
-    <body>
-        <h3>Ingrese el nombre del producto</h3>
-        <input type="text" id="txtProducto"/>
-        <h3>Ingrese la cantidad a comprar</h3>
-        <input type="text" id="txtCantidad"/>
-        <h3>Ingrese el precio del producto</h3>
-        <input type="text" id="txtPrecio"/>
-        <h3>Ingrese el porcentaje de descuento</h3>
-        <input type="text" id="txtPorcentajeDescuento"/>
-        <h3>Subtotal</h3>
-        <h3 id="lblSubtotal">0.0</h3>
-        <h3>Descuento</h3>
-        <h3 id="lblDescuento">0.0</h3>
-        <h3>IVA 12%</h3>
-        <h3 id="lblValorIVA">0.0</h3>
-        <h3>Total</h3>
-        <h3 id="lblTotal">0.0</h3>
+   <body>
+    <div class="principal">
+        <div class="logoEscuela">
+            <img src="./logoKrakeDev.png" width="80%" />
+        </div>
 
-        <input type="button" value="CALCULAR TOTAL" 
-        onclick="calcularValorTotal()"/>
-    </body> 
+        <div class="contenido">
+            <div class="titulo">
+                PUNTO DE VENTA
+            </div>
+
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PRODUCTO
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota1"/>
+                    <div class="error" id="lblError1"></div>
+                </div>
+            </div>
+           
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    CANTIDAD
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota2"/>
+                    <div class="error" id="lblError2"></div>
+                </div>
+            </div>
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PRECIO
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota3"/>
+                    <div class="error" id="lblError3"></div>
+                </div>
+            </div>
+            <div class="botones">
+                <div class="contenedorBoton">
+                    <input type="button" value="TOTAL"
+                     class="estiloBoton" onclick="calcular();" />
+                     <input type="button" value="LIMPIAR"
+                     class="estiloBoton" onclick="calcular();" />
+                </div>
+             </div>
+        </div>
+        <div class="areaResultado">
+            <div class="resultado">
+                <div>
+                    SUBTOTAL:
+                </div>
+                <div id="lblSubtotal">
+                    0.0
+                </div>
+            </div>
+            <div class="resultado">
+                <div>
+                    DESCUENTO:
+                </div>
+                <div id="lblDescuento">
+                    0.0
+                </div>
+            </div>
+
+            <div class="resultado">
+                <div>
+                    IVA 12%:
+                </div>
+                <div id="lblIva">
+                    0.0
+                </div>
+            </div>
+
+             <div class="resultado">
+                <div>
+                    TOTAL:
+                </div>
+                <div id="lblTotal">
+                    0.0
+                </div>
+            </div>
+           
+            <div class="imagenResultado">
+                <img src="" width="50%" />
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+
 
