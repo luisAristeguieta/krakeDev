@@ -16,7 +16,7 @@ validarPlaca = function(){
         let diaPicoYPlaca = obtenerDiaPicoYPlaca(placa);
         mostrarTexto("lblPicoYPlaca", "El dia pico y placa es: " + diaPicoYPlaca);
         mostrarTexto("lblError", "")
-        
+
     } else {
         mostrarTexto("lblResultado", "ESTRUCTURA INCORRECTA ");
         mostrarTexto("lblError", erroresEstructura);
@@ -24,5 +24,13 @@ validarPlaca = function(){
         mostrarTexto("lblTipoVehiculo", "");
         mostrarTexto("lblPicoYPlaca", "");
     }
-    
+}
+
+limpiar = function(){
+    mostrarTexto("lblResultado", "");
+    mostrarTexto("lblError", "");
+    mostrarTexto("lblProvincia", "");
+    mostrarTexto("lblTipoVehiculo", "");
+    mostrarTexto("lblPicoYPlaca", "");
+    mostrarTextoEnCaja("txtPlaca","")
 }
