@@ -4,9 +4,7 @@ let mensajeError = "";
 // Validacion de la longitud de la placa 
 if (placa.length < 7 || placa.length > 8) {
     mensajeError = mensajeError + "La placa debe tener 7 u 8 caracteres. ";
-} 
-
-// Validacion de los caracteres en mayusculas 
+} else { // Validacion de los caracteres en mayusculas / Siempre y cuando tengan 7 u 8 caracteres
 // Se agrega esctructura indexada [] para que le pase el orden del caracter a evaluar y no un numero
 if (esMayuscula(placa[0]) == false){
     mensajeError = mensajeError + "El caracter 1 debe ser una letra Mayuscula. ";
@@ -45,6 +43,9 @@ if (placa.length == 8){
     mensajeError = mensajeError + "El caracter 8 debe ser un Numero. ";
     }
 }
+
+}
+
 
 if (mensajeError == ""){
     return null;

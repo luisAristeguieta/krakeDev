@@ -1,0 +1,112 @@
+body {
+    background-image: url("placa6.png");
+    background-size: cover;      
+    background-repeat: no-repeat; 
+    background-position: center;  
+    background-color: aliceblue;
+}
+
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(83, 116, 145, 0.938);  
+    margin-top: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 30px;
+}
+
+
+.titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ingresoDatos{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Propiedad modificada para que el contenido este a la derecha*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.cajaTexto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.estiloBoton{
+    background-color: rgb(9, 65, 231); 
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 150px; /* Agrego esta nueva propiedad, esto garantiza que el tamano de los botones tenga en el mismo ancho*/
+
+}
+.estiloBoton:hover {
+    background-color:white; 
+    color: rgb(9, 109, 231);
+    border:1px;
+    border-radius: 5px;
+}
+.estiloBoton:active{
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+.contenedorBoton{
+    display: flex;
+    flex:1;
+    justify-content: center;
+}
+
+.areaResultado{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultado{
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    color: rgb(43, 255, 0);
+
+}
+
+.error{
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    color: red;
+
+}
