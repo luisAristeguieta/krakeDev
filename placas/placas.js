@@ -23,4 +23,7 @@ validarPlaca = function(){
     } else {
         mostrarTexto("lblTipoVehiculo", "Es tipo: " + tipoVehiculo);
     }*/
+
+    let diaPicoYPlaca = obtenerDiaPicoYPlaca(placa);
+    mostrarTexto("lblPicoYPlaca", "El dia pico y placa es: " + diaPicoYPlaca);
 }

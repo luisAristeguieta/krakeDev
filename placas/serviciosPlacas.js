@@ -128,3 +128,22 @@ if(placa[1] == "A" || placa[2] == "Z"){
 }
 return tipoVehiculo;
 }
+
+obtenerDiaPicoYPlaca = function(placa){
+let ultimaPosicion = placa.length - 1
+placa[ultimaPosicion];
+let diaPicoYPlaca;
+
+if (placa[ultimaPosicion] == 1 || placa[ultimaPosicion] == 2){
+    diaPicoYPlaca = "Lunes"
+} else if (placa[ultimaPosicion] == 3 || placa[ultimaPosicion]== 4){
+    diaPicoYPlaca = "Martes"
+} else if (placa[ultimaPosicion] == 5 || placa[ultimaPosicion] == 6){
+    diaPicoYPlaca = "Miercoles"
+} else if (placa[ultimaPosicion] == 7 || placa[ultimaPosicion] == 8){
+    diaPicoYPlaca = "Jueves"
+} else {
+    diaPicoYPlaca = "Viernes"
+}
+return diaPicoYPlaca;
+}
