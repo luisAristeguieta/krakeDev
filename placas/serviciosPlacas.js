@@ -55,36 +55,58 @@ if (mensajeError == ""){
 
 }
 
-
-
-
-
-
-
-/*esLongitudValida = function(placa){
-    if (placa.length == "") {
-        mostrarTexto("lblResultado", "Campo Obligatorio");
-        return false;
-    } else  
-        return false;
-    } else {
-        mostrarTexto("lblResultado", "");
-        return true;
-    }
-}*/
-
-
-
-/*
-esCantidadValida = function(cantidad){
-    if (isNaN(cantidad)) {
-        mostrarTexto("lblError2", "Campo Obligatorio");
-        return true;
-    } else  if (cantidad < 0 || cantidad > 100) {
-        mostrarTexto("lblError2", "Cantidad Invalida");
-        return true;
-    } else {
-        mostrarTexto("lblError2", "");
-        return false;
-    }
-}*/
+obtenerProvincia = function(placa){
+let provincia;
+if (placa[0] == "A"){
+    provincia = "Azuay"
+} else if (placa[0] == "B"){
+    provincia = "Bolivar"
+} else if (placa[0] == "U"){
+    provincia = "Canar"
+} else if (placa[0] == "C"){
+    provincia = "Carchi"
+} else if (placa[0] == "X"){
+    provincia = "Cotopaxi"
+} else if (placa[0] == "H"){
+    provincia = "Chimborazo"
+} else if (placa[0] == "O"){
+    provincia = "El Oro"
+} else if (placa[0] == "E"){
+    provincia = "Esmeraldas"
+} else if (placa[0] == "W"){
+    provincia = "Galapagos"
+} else if (placa[0] == "G"){
+    provincia = "Guayas"
+} else if (placa[0] == "I"){
+    provincia = "Imbabura"
+} else if (placa[0] == "L"){
+    provincia = "Loja"
+} else if (placa[0] == "R"){
+    provincia = "Los Rios"
+} else if (placa[0] == "M"){
+    provincia = "Manabi"
+} else if (placa[0] == "V"){
+    provincia = "Morona Santiago"
+} else if (placa[0] == "N"){
+    provincia = "Napo"
+} else if (placa[0] == "S"){
+    provincia = "Pastaza"
+} else if (placa[0] == "P"){
+    provincia = "Pichincha"
+} else if (placa[0] == "K"){
+    provincia = "Sucumbios"
+} else if (placa[0] == "Q"){
+    provincia = "Orellana"
+} else if (placa[0] == "T"){
+    provincia = "Tungurahua" 
+} else if (placa[0] == "Z"){
+    provincia = "Zamora Chinchipe"
+} else if (placa[0] == "Y"){
+    provincia = "Santa Elena"
+} else if (placa[0] == "J"){
+    provincia = "Santo Domingo de los Tsachilas"
+} else {
+    provincia = null;
+}
+    return provincia
+}
