@@ -58,55 +58,73 @@ if (mensajeError == ""){
 obtenerProvincia = function(placa){
 let provincia;
 if (placa[0] == "A"){
-    provincia = "Azuay"
+    provincia = "Azuay";
 } else if (placa[0] == "B"){
-    provincia = "Bolivar"
+    provincia = "Bolivar";
 } else if (placa[0] == "U"){
-    provincia = "Canar"
+    provincia = "Canar";
 } else if (placa[0] == "C"){
-    provincia = "Carchi"
+    provincia = "Carchi";
 } else if (placa[0] == "X"){
-    provincia = "Cotopaxi"
+    provincia = "Cotopaxi";
 } else if (placa[0] == "H"){
-    provincia = "Chimborazo"
+    provincia = "Chimborazo";
 } else if (placa[0] == "O"){
-    provincia = "El Oro"
+    provincia = "El Oro";
 } else if (placa[0] == "E"){
-    provincia = "Esmeraldas"
+    provincia = "Esmeraldas";
 } else if (placa[0] == "W"){
-    provincia = "Galapagos"
+    provincia = "Galapagos";
 } else if (placa[0] == "G"){
-    provincia = "Guayas"
+    provincia = "Guayas";
 } else if (placa[0] == "I"){
     provincia = "Imbabura"
 } else if (placa[0] == "L"){
-    provincia = "Loja"
+    provincia = "Loja";
 } else if (placa[0] == "R"){
-    provincia = "Los Rios"
+    provincia = "Los Rios";
 } else if (placa[0] == "M"){
-    provincia = "Manabi"
+    provincia = "Manabi";
 } else if (placa[0] == "V"){
-    provincia = "Morona Santiago"
+    provincia = "Morona Santiago";
 } else if (placa[0] == "N"){
-    provincia = "Napo"
+    provincia = "Napo";
 } else if (placa[0] == "S"){
-    provincia = "Pastaza"
+    provincia = "Pastaza";
 } else if (placa[0] == "P"){
-    provincia = "Pichincha"
+    provincia = "Pichincha";
 } else if (placa[0] == "K"){
-    provincia = "Sucumbios"
+    provincia = "Sucumbios";
 } else if (placa[0] == "Q"){
-    provincia = "Orellana"
+    provincia = "Orellana";
 } else if (placa[0] == "T"){
-    provincia = "Tungurahua" 
+    provincia = "Tungurahua"; 
 } else if (placa[0] == "Z"){
-    provincia = "Zamora Chinchipe"
+    provincia = "Zamora Chinchipe";
 } else if (placa[0] == "Y"){
-    provincia = "Santa Elena"
+    provincia = "Santa Elena";
 } else if (placa[0] == "J"){
-    provincia = "Santo Domingo de los Tsachilas"
+    provincia = "Santo Domingo de los Tsachilas";
 } else {
     provincia = null;
 }
-    return provincia
+    return provincia;
+}
+
+obtenerTipoVehiculo =function(placa){
+let tipoVehiculo;
+if(placa[1] == "A" || placa[2] == "Z"){
+    tipoVehiculo = "Vehiculo Comercial";
+} else if (placa[1] == "E") {
+    tipoVehiculo = "Vehiculo Gubernamental";
+} else if (placa[1] == "X") {
+    tipoVehiculo = "Uso Oficial";
+} else if (placa[1] == "S") {
+    tipoVehiculo = "Vehiculo del Gobierno Provincial";
+} else if (placa[1] == "M") {
+    tipoVehiculo = "Vehiculo Municipal";
+} else {
+    tipoVehiculo = "Vehiculo Particular";
+}
+return tipoVehiculo;
 }

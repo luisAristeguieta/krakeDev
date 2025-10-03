@@ -13,4 +13,14 @@ validarPlaca = function(){
     } else {
         mostrarTexto("lblProvincia", "La placa pertenece a la provincia de: " + nombreProvincia);
     }
+
+    let tipoVehiculo = obtenerTipoVehiculo(placa); 
+    mostrarTexto("lblTipoVehiculo", "Es tipo: " + tipoVehiculo);
+    /*
+    if (tipoVehiculo == null){ // Esta condicion esta adicionada sin proposito ya que no existe ningun vehiculo 
+    con etse parametro siendo nulo. En el segundo caractere de la placa no se excluye ninguna letra. 
+        mostrarTexto("lblTipoVehiculo", "Tipo de Vehiculo Incorrecto");
+    } else {
+        mostrarTexto("lblTipoVehiculo", "Es tipo: " + tipoVehiculo);
+    }*/
 }
