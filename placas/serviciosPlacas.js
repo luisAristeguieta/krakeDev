@@ -59,6 +59,7 @@ if (mensajeError == ""){
 
 
 
+
 /*esLongitudValida = function(placa){
     if (placa.length == "") {
         mostrarTexto("lblResultado", "Campo Obligatorio");
