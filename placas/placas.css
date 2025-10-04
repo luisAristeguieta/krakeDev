@@ -44,6 +44,24 @@ body {
     margin-bottom: 50px;
 }
 
+#txtPlaca {
+    width: 250px;         
+    height: 35px;         
+    font-size: 18px;      
+    padding: 5px 10px;    
+    border: 2px solid #0cf313; 
+    border-radius: 8px;   
+    outline: none;        
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2); 
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+#txtPlaca:focus {
+    border-color: #2E7D32;   
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+}
+
 .estiloBoton{
     background-color: rgb(9, 65, 231); 
     border: none;
