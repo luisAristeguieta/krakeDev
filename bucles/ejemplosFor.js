@@ -36,3 +36,11 @@ mostrarNasa = function(){
     }
        console.log(" Ha sido hackeada") 
 }
+
+mostrarImpares = function(){
+    console.log("Antes del for");
+    for(i=1 ; i<=21 ; i+=2){
+        console.log(i)
+    }
+    console.log("Despues del for");
+}
