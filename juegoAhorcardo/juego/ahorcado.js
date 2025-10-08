@@ -64,3 +64,28 @@ mostrarLetra = function(letra,posicion){
     }else if (posicion == 4){
         mostrarTexto("div3" ,letra);
 } */ 
+
+
+validar = function(letra){
+
+letrasEncotradas = 0;
+
+for (i = 0 ; i < palabraSecreta.length ; i++ ){
+    let caracter = palabraSecreta.charAt(i);
+    if (caracter == letra){
+        mostrarLetra(letra,i);
+        letrasEncotradas++;
+    } 
+}
+
+}
+
+ingresarLetra = function(){
+    let letra = recuperarTexto ("txtLetra");
+
+    if (esMayuscula(letra)){
+        validar(letra);
+    } else {
+        alert("SOLO SE ACEPTAN LETRAS MAYUSCULAS")
+    }
+}
