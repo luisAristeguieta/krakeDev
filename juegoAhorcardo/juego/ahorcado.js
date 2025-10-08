@@ -6,14 +6,18 @@ esMinuscula = function(caracter){
 return (caracter.charCodeAt(0) >= 97 && caracter.charCodeAt(0) <= 122);
 }
 
+
+let palabraSecreta = ""
+
 guardarPalabra = function(){
     let palabra = recuperarTexto ("txtSecreta");
     let mensaje = validacionPalabra(palabra);
 
     if (mensaje == ""){
-        mostrarTexto("lblPalabra","");
+        palabraSecreta = palabra;
+        console.log("Palabra secreta guardada:", palabraSecreta);
     } else {
-        mostrarTexto("lblPalabra",mensaje);
+        alert(mensaje);
     }
 
 }
@@ -42,3 +46,4 @@ validacionPalabra = function(palabra){
     }
     return errorPalabra;
 }
+
