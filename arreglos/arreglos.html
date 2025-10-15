@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="arreglos.js"></script>
+        <script src="utilitarios.js"></script>
+    </head>
+    <body>
+        <input type ="text" id="txNotas"  />
+        <input type="button" value="Agregar Elemento" onclick="agregarValorDirecto();"/>
+        <input type="button" value="Agregar Valor" onclick="ejecutarAgregarNota();"/>
+        <input type="button" value="Recorrer" onclick="recorrerArreglo();"/>
+        <input type="button" value="Calcular Promedio" onclick="ejecutarPromedio();"/>
+        <h3 id="lblResultado"></h3>
+
+        <table>
+            <tr>
+                <th>ENC 1</th>
+                <th>ENC 2</th>
+                <th>ENC 3</th>
+            </tr>
+            <tr>
+                <td>c1</td>
+                <td>c2</td>
+                <td>c3</td>
+            </tr>
+            <tr>
+                <td>c4</td>
+                <td>c5</td>
+                <td>c6</td>
+            </tr>
+            <tr>
+                <td>c7</td>
+                <td>c8</td>
+                <td>c9</td>
+            </tr>
+        </table>
+        
+        <input type="button" value="Generar Tabla" onclick="generarTabla();"/>
+        <input type="button" value="Generar Tabla Con Notas" onclick="mostrarNotaTabla();"/> 
+        <div id="divTable">
+
+        </div>
+
+    </body>
+
+</html>

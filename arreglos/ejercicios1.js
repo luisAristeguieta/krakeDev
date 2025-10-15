@@ -33,6 +33,44 @@ let notaR;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 calcularPromedio = function(){
     let notaA;
