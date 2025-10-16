@@ -103,3 +103,39 @@ if (resultadoBusquedad == null){
     mostrarTextoEnCaja("txtEdad",resultadoBusquedad.edad)
 }
 }
+
+
+/* Nuevo objetivo, Paso 1se desea modificar algunos datos o atributos del objeto, se busca, muestra la informacion
+y se remplaza con el nuevo o nuevos datos excluyendo el dato de busquedad y procede a guardar reemplazando los 
+antiguos datos*/
+
+modificarCliente = function(cliente){
+    let clienteEncontrado = buscarCliente(cliente.cedula);
+
+    if (clienteEncontrado != null){
+        clienteEncontrado.nombre = cliente.nombre;
+        clienteEncontrado.genero = cliente.genero;
+        clienteEncontrado.edad = cliente.edad;
+    }
+
+}
+
+/* Paso 2 se crea funcion sin parametro para invocar la funcion previamente creada modificarCliente, 
+se muetran los datos  de una previa busquedad y se crea un nuevo objeto para reemplazar con los nuevos datos, 
+pasandole este nuevo objeto a la funcion modificarCliente, la funcion modificarCliente recibe el objeto
+y remplaza con datos modificados y para mostrar se invoca a la funcion generarCliente para confirmar que se haya
+modificado */
+
+guardarCambios = function(){
+
+let nombre = recuperarTexto("txtNombre");
+let cedula = recuperarInt("txtCedula");
+let genero = recuperarTexto("txtGenero");
+let edad = recuperarInt("txtEdad");
+
+let clienteModificado = {nombre,cedula,genero,edad};
+modificarCliente(clienteModificado);
+
+generarCliente();
+
+}
