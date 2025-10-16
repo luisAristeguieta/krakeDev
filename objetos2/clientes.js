@@ -83,3 +83,23 @@ agregarCliente(clienteNuevo);
 // generarCliente(resultadoAgregar);
 
 }
+
+/* Nuevo objetivo: Buscar el cliente ingresando el numero de cedula, y muestra los otros datos que contiene el 
+cliente en la busqueda. Dentro de una caja de texto coloca la cedula, y dentro de la funcion buscar cliente
+compara si esta coincide. Se agrega un boton y una caja de texto y regresa el resultado ya sea en una 
+alerta, en una etiqueta, en console o en este caso se coloca en las cajas de texto existente */
+
+ejecutarBusquedad =  function(){
+
+let cedulaIngresa =  recuperarInt("txtBusquedaCedula");
+let resultadoBusquedad = buscarCliente(cedulaIngresa);
+
+if (resultadoBusquedad == null){
+    alert("Cliente No Encontrado")
+} else {
+    mostrarTextoEnCaja("txtNombre",resultadoBusquedad.nombre)
+    mostrarTextoEnCaja("txtCedula",resultadoBusquedad.cedula)
+    mostrarTextoEnCaja("txtGenero",resultadoBusquedad.genero)
+    mostrarTextoEnCaja("txtEdad",resultadoBusquedad.edad)
+}
+}
