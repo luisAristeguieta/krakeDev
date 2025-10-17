@@ -3,6 +3,42 @@ body{
     margin-left: 0px;
     margin-right: 0px;
 }
+
+/* ==== TABLA DE EMPLEADOS ==== */
+.tabla-empleados {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.tabla-empleados th {
+  background-color: #217023; /* verde oscuro */
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Filas */
+.tabla-empleados td {
+  padding: 8px;
+  text-align: center;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Alternar colores entre filas */
+.tabla-empleados tr:nth-child(even) td {
+  background-color: #e9f6ea; /* verde claro */
+}
+
+
 .area{
     display: flex;
     flex:1;
