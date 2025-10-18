@@ -174,6 +174,11 @@ desde el boton Nuevo
 
 ejecutarNuevo = function(){
     esNuevo=true;
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
     console.log(esNuevo);
 }
 
@@ -210,11 +215,7 @@ mostrarOpcionEmpleado = function(){
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
     mostrarEmpleados();
-   /* deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");*/
+    deshabilitarAlGuardar();
 }
 
 mostrarOpcionRol = function(){
