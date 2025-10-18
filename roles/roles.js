@@ -108,6 +108,12 @@ if (cedula == "" || (cedula.length < 10 || cedula.length > 11)){
         if(agregoCliente == true){
             alert("Empleado Guardado Correctamente");
             mostrarEmpleados();
+        // Si guarda correctamente deshabilitar las cajas de texto y el boton guardar:
+            deshabilitarComponente("txtCedula");
+            deshabilitarComponente("txtNombre");
+            deshabilitarComponente("txtApellido");
+            deshabilitarComponente("txtSueldo");
+            deshabilitarComponente("btnGuardar");
         } else {
             alert("Ya existe un empleado con  el numero de cedula :" + cedula)
         }
