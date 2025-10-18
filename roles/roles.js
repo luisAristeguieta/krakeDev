@@ -7,6 +7,17 @@ let empleados = [
 
 let esNuevo = false;
 
+
+/* Paso 5: Crear una funcion que deshabilite las cajas de texto y el boton guardar*/
+
+deshabilitarAlGuardar = function(){
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+}
+
 /* Paso 4 Agregar funcion Guardar, Servira para crear un empleado como modificar uno existente, realizando las 
 validaciones en la caja de texto cedula (Tener 10 caracteres todos numericos)/ nombre y apellido en mayusculas y
 al menos 3 letras, y el sueldo entre 400 y 5000 incluidos, 
@@ -109,20 +120,13 @@ if (cedula == "" || (cedula.length < 10 || cedula.length > 11)){
             alert("Empleado Guardado Correctamente");
             mostrarEmpleados();
         // Si guarda correctamente deshabilitar las cajas de texto y el boton guardar:
-            deshabilitarComponente("txtCedula");
-            deshabilitarComponente("txtNombre");
-            deshabilitarComponente("txtApellido");
-            deshabilitarComponente("txtSueldo");
-            deshabilitarComponente("btnGuardar");
+            deshabilitarAlGuardar();
         } else {
             alert("Ya existe un empleado con  el numero de cedula :" + cedula)
         }
     }
 }
 
-
-
-    
 
 /* Paso 3 Crear funcion agregarEmpleado recibiendo como parametro el empleado un objeto (cedula, nombre....)
 agregara el nuevo objeto si no existe en el arreglo actual comparandolo con el atributo cedula de la funcion
