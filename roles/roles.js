@@ -7,6 +7,16 @@ let empleados = [
 
 let esNuevo = false;
 
+/* Parte del reto # 48, crear el boton limpiar */
+
+limpiar =  function(){
+    esNuevo = false;
+    mostrarTextoEnCaja("txtCedula","");
+    mostrarTextoEnCaja("txtNombre","");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo","");
+    deshabilitarComponente("btnGuardar");
+}
 
 /* Reto 48: Modificar Empleado, crear una funcion que muestre si encuentra algun empleado existente por el atributo 
 de la cedula poder recuperar la informacion y permitir modificarla, caso que no exista mostrar no Existe
