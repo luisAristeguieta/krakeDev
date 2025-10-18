@@ -5,6 +5,20 @@ let empleados = [
     
 ]
 
+let esNuevo = false;
+
+
+/* Reto 47: A. habilitar y deshabilitar componentes. Al cargar empleados se deshabilita las cajas de texto y boton
+GUARDAR, agregar variable global esNuevo con valor false, sirve para saber si se esta ingresando un nuevo registro 
+o modificando uno existente y agregar una funcion ejecutarNuevo para testear la variable recien creada y invocarla
+desde el boton Nuevo
+ */
+
+ejecutarNuevo = function(){
+    esNuevo=true;
+    console.log(esNuevo);
+}
+
 /* Agregar un objeto mas al arreglo global y crear una funcion mostrarEmpleados que muestre la tabla 
 en el id de div correspondiente y invcocarla en la funcion mostrarOpcionEmpleado */
 
