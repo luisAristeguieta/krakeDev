@@ -7,6 +7,17 @@ let empleados = [
 
 let esNuevo = false;
 
+
+
+buscarPorRol =  function(){
+    let cedula = recuperarTexto("txtBusquedaCedulaRol");
+    let empleado = buscarEmpleado(cedula);
+    mostrarTexto("infoCedula",empleado.cedula);
+    mostrarTexto("infoNombre",empleado.nombre);
+    mostrarTexto("infoSueldo",empleado.sueldo);
+}
+
+
 /* Parte del reto # 48, crear el boton limpiar */
 
 limpiar =  function(){
