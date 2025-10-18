@@ -1,12 +1,37 @@
 let empleados = [
-    {cedula:"1714616123",nombre:"John",apellido:"Cena",sueldo:500.0},
-    {cedula:"0914632123",nombre:"Luisa",apellido:"Gonzalez",sueldo:900.0},
-    {cedula:"1756124792",nombre:"Luis",apellido:"Jimenez",sueldo:1000.0}
+    {cedula:"1714616123",nombre:"JOHN",apellido:"CENA",sueldo:500.0},
+    {cedula:"0914632123",nombre:"LUISA",apellido:"GONZALEZ",sueldo:900.0},
+    {cedula:"1756124792",nombre:"LUIS",apellido:"JIMENEZ",sueldo:1000.0}
     
 ]
 
 let esNuevo = false;
 
+
+/* Reto 48: Modificar Empleado, crear una funcion que muestre si encuentra algun empleado existente por el atributo 
+de la cedula poder recuperar la informacion y permitir modificarla, caso que no exista mostrar no Existe
+ */
+
+ejecutarBusqueda =  function(){
+   
+    let busquedadCedula = recuperarTexto("txtBusquedaCedula");
+    let empleadoBuscado = buscarEmpleado(busquedadCedula);;
+
+    if (empleadoBuscado == null ){
+        alert("Empleado No Existe")
+    } else {
+        mostrarTextoEnCaja("txtCedula",empleadoBuscado.cedula);
+        mostrarTextoEnCaja("txtNombre",empleadoBuscado.nombre);
+        mostrarTextoEnCaja("txtApellido", empleadoBuscado.apellido);
+        mostrarTextoEnCaja("txtSueldo",empleadoBuscado.sueldo);
+        habilitarComponente("txtNombre");
+        habilitarComponente("txtApellido");
+        habilitarComponente("txtSueldo");
+        habilitarComponente("btnGuardar");
+        esNuevo = false;
+    }
+
+}
 
 /* Paso 5: Crear una funcion que deshabilite las cajas de texto y el boton guardar*/
 
@@ -111,22 +136,41 @@ if (cedula == "" || (cedula.length < 10 || cedula.length > 11)){
 // Si todo esta correcto estara true y se procede a continuar que es agregar un nuevo objeto al arreglo:
 
     if (evaluarCedula & evaluarNombre & evaluarApellido & evaluarSueldo){
-        esNuevo = true;
 
-        clienteNuevo = {cedula,nombre,apellido,sueldo};
-        let agregoCliente = agregarEmpleado(clienteNuevo);
+        if(esNuevo == true){
 
-        if(agregoCliente == true){
-            alert("Empleado Guardado Correctamente");
-            mostrarEmpleados();
-        // Si guarda correctamente deshabilitar las cajas de texto y el boton guardar:
-            deshabilitarAlGuardar();
+            let clienteNuevo = {cedula,nombre,apellido,sueldo};
+            let agregoCliente = agregarEmpleado(clienteNuevo);
+
+            if(agregoCliente == true){
+                alert("Empleado Guardado Correctamente");
+                mostrarEmpleados();
+                // Si guarda correctamente deshabilitar las cajas de texto y el boton guardar:
+                deshabilitarAlGuardar();
+                // Parte del reto 48: cambiar a false la variable esNuevo cuando se guarda un empleado nuevo.
+                esNuevo = false;
+            } else {
+            alert("Ya existe un empleado con  el numero de cedula :" + cedula);
+            }
+
         } else {
-            alert("Ya existe un empleado con  el numero de cedula :" + cedula)
+
+            let empleadoEncontrado = buscarEmpleado(cedula);
+
+             if (empleadoEncontrado != null) {
+                empleadoEncontrado.nombre = nombre;
+                empleadoEncontrado.apellido = apellido;
+                empleadoEncontrado.sueldo = sueldo;
+
+                alert("Empleado modificado exitosamente");
+                mostrarEmpleados();
+                deshabilitarAlGuardar();
+            } else {
+                alert("Error: el empleado no existe");
+            }
         }
     }
-}
-
+}   
 
 /* Paso 3 Crear funcion agregarEmpleado recibiendo como parametro el empleado un objeto (cedula, nombre....)
 agregara el nuevo objeto si no existe en el arreglo actual comparandolo con el atributo cedula de la funcion
