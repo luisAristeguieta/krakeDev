@@ -15,6 +15,7 @@ limpiar =  function(){
     mostrarTextoEnCaja("txtNombre","");
     mostrarTextoEnCaja("txtApellido", "");
     mostrarTextoEnCaja("txtSueldo","");
+    mostrarTextoEnCaja("txtBusquedaCedula","");
     deshabilitarComponente("btnGuardar");
 }
 
@@ -29,6 +30,10 @@ ejecutarBusqueda =  function(){
 
     if (empleadoBuscado == null ){
         alert("Empleado No Existe")
+        mostrarTextoEnCaja("txtCedula","");
+        mostrarTextoEnCaja("txtNombre","");
+        mostrarTextoEnCaja("txtApellido", "");
+        mostrarTextoEnCaja("txtSueldo","");
     } else {
         mostrarTextoEnCaja("txtCedula",empleadoBuscado.cedula);
         mostrarTextoEnCaja("txtNombre",empleadoBuscado.nombre);
@@ -159,6 +164,12 @@ if (cedula == "" || (cedula.length < 10 || cedula.length > 11)){
                 deshabilitarAlGuardar();
                 // Parte del reto 48: cambiar a false la variable esNuevo cuando se guarda un empleado nuevo.
                 esNuevo = false;
+                mostrarTextoEnCaja("txtCedula","");
+                mostrarTextoEnCaja("txtNombre","");
+                mostrarTextoEnCaja("txtApellido", "");
+                mostrarTextoEnCaja("txtSueldo","");
+                mostrarTextoEnCaja("txtBusquedaCedula","");
+                
             } else {
             alert("Ya existe un empleado con  el numero de cedula :" + cedula);
             }
@@ -175,6 +186,11 @@ if (cedula == "" || (cedula.length < 10 || cedula.length > 11)){
                 alert("Empleado modificado exitosamente");
                 mostrarEmpleados();
                 deshabilitarAlGuardar();
+                mostrarTextoEnCaja("txtCedula","");
+                mostrarTextoEnCaja("txtNombre","");
+                mostrarTextoEnCaja("txtApellido", "");
+                mostrarTextoEnCaja("txtSueldo","");
+                mostrarTextoEnCaja("txtBusquedaCedula","");
             } else {
                 alert("Error: el empleado no existe");
             }
