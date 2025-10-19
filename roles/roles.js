@@ -9,12 +9,62 @@ let esNuevo = false;
 
 
 
+calcularRol = function(){
+    let sueldo = recuperarFloatDiv("infoSueldo");
+    let descuentos = recuperarFloat("txtDescuentos");
+
+    if (isNaN(sueldo) || sueldo< 0 ){
+        alert("Sueldo Incorrecto");
+        return;
+    } else if (isNaN(descuentos)){
+        alert ("El valor de descuento debe ser un numero")
+        return;
+    } else {
+        let aporteEmpleado = calcularAporteEmpleado(sueldo);
+        mostrarTextoDiv("infoIESS",aporteEmpleado);
+        let valorAPagar = calcularValorAPagar(sueldo,aporteEmpleado,descuentos);
+        mostrarTextoDiv("infoPago",valorAPagar);
+    } 
+}
+
+calcularValorAPagar = function(sueldo,aporte,descuento){
+let pagarEmpleado =  sueldo - aporte - descuento;
+return pagarEmpleado;
+}
+
+calcularAporteEmpleado =  function(sueldo){
+let aporteEmpleado =  sueldo * 0.0945
+return aporteEmpleado;
+}
+
+/* Reto 49 a Crea la funcion buscarPorRol, solo extrae los valores de los empleados, se adiciona la limpieza 
+de las cajas y en el caso que se correcto mostrar los datos empleados y limpia, en el caso de no muestra el 
+error y limpia*/
+
 buscarPorRol =  function(){
     let cedula = recuperarTexto("txtBusquedaCedulaRol");
     let empleado = buscarEmpleado(cedula);
-    mostrarTexto("infoCedula",empleado.cedula);
-    mostrarTexto("infoNombre",empleado.nombre);
-    mostrarTexto("infoSueldo",empleado.sueldo);
+
+    if (empleado != null){
+        mostrarTexto("infoCedula",empleado.cedula);
+        mostrarTexto("infoNombre",empleado.nombre + " " + empleado.apellido);
+        mostrarTexto("infoSueldo",empleado.sueldo);
+        mostrarTextoEnCaja("txtBusquedaCedulaRol","");
+        mostrarTextoEnCaja("txtDescuentos",0)
+        mostrarTextoDiv("infoIESS","0.0");
+        mostrarTextoDiv("infoPago","0.0");
+
+    } else {
+        alert("No Existe registro de la cedula nro: " + cedula);
+        mostrarTexto("infoCedula","");
+        mostrarTexto("infoNombre","");
+        mostrarTexto("infoSueldo","");
+        mostrarTextoEnCaja("txtDescuentos",0)
+        mostrarTextoDiv("infoIESS","0.0");
+        mostrarTextoDiv("infoPago","0.0");
+
+    }
+    
 }
 
 
