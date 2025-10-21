@@ -6,8 +6,55 @@ let empleados = [
 ]
 
 let esNuevo = false;
-
 let roles = []
+
+
+/* Reto 50 Mostrar Rol. Crear funcion mostrarTotales y mostrar el resultado en Resumen*/
+
+mostrarTotales = function(){
+
+    let totalEmpleado = 0;
+    let totalEmpleador = 0;
+    let totalAPagar = 0;
+
+    for (let i=0;i<roles.length;i++){
+        let objeto = roles[i];
+
+        totalEmpleado += objeto.aporteEmpleado;
+        totalEmpleador += objeto.aporteEmpleador;
+        totalAPagar += objeto.valorAPagar;
+    }
+    mostrarTextoDiv("infoAporteEmpleado", totalEmpleado.toFixed(2));
+    mostrarTextoDiv("infoAporteEmpresa", totalEmpleador.toFixed(2));
+    mostrarTextoDiv("infoTotalPago", totalAPagar.toFixed(2));
+    let totalNomina =  (totalEmpleado + totalEmpleador + totalAPagar)
+    mostrarTextoDiv("infoTotalNomina", totalNomina.toFixed(2));
+}
+
+/* Reto 50 Mostrar Rol. Crear funcion mostrarRoles */
+
+mostrarRoles = function(){
+
+    let tabla;
+
+    let cmpTabla = document.getElementById("tablaResumen");
+    let encabezado = "<tr><th>CEDULA</th><th>NOMBRE</th><th>VALOR A PAGAR </th><th>APORTE EMPLEADO</th><th>APORTE EMPLEADOR</th></tr>"
+    tabla = `<table class="tabla-empleados">` + encabezado;
+        for(let i=0;i<roles.length;i++){
+            let objeto = roles[i];
+
+            tabla+= "<tr>"
+            tabla+= "<td>" + objeto.cedula+ "</td>"
+            tabla+= "<td>" + objeto.nombre+ "</td>"
+            tabla+= "<td>" + objeto.valorAPagar.toFixed(2)+ "</td>"
+            tabla+= "<td>" + objeto.aporteEmpleado.toFixed(2)+ "</td>"
+            tabla+= "<td>" + objeto.aporteEmpleador.toFixed(2)+ "</td>"
+            tabla+="</tr>"
+        }
+
+    tabla += "</table>"
+    cmpTabla.innerHTML = tabla;
+}
 
 /* Reto 50 Paso D: crear la funcion guardarRol  */
 
@@ -18,7 +65,6 @@ guardarRol = function(){
     let nombre = recuperarTextoDiv("infoNombre");
     let cedula = recuperarTextoDiv("infoCedula");
     let sueldo = recuperarFloatDiv("infoSueldo");
-
     let valorAporteEmpleador = calcularAporteEmpleador(sueldo);
 
     rol = {};
@@ -47,7 +93,7 @@ guardarRol = function(){
 /* Reto 50 Paso C: Crear la funcion calcularAporteEmpleador  */
 
 calcularAporteEmpleador = function(sueldo){
-    let valorEmpleadorIess = sueldo * 0.1115;
+    let valorEmpleadorIess = (sueldo * 0.1115);
     return valorEmpleadorIess;
 }
 
@@ -432,6 +478,7 @@ mostrarOpcionRol = function(){
     ocultarComponente("divResumen");
     deshabilitarComponente("btnGuardarRol");
     deshabilitarComponente("btnCalcular");
+    // mostrarRoles();
 
 }
 
@@ -439,4 +486,6 @@ mostrarOpcionResumen = function(){
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+    mostrarRoles();
+    mostrarTotales();
 }
