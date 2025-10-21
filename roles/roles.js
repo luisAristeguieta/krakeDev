@@ -7,6 +7,81 @@ let empleados = [
 
 let esNuevo = false;
 
+let roles = []
+
+/* Reto 50 Paso D: crear la funcion guardarRol  */
+
+guardarRol = function(){
+   
+    let valorAPagar = recuperarFloatDiv("infoPago");
+    let aporteEmpleado = recuperarFloatDiv("infoIESS");
+    let nombre = recuperarTextoDiv("infoNombre");
+    let cedula = recuperarTextoDiv("infoCedula");
+    let sueldo = recuperarFloatDiv("infoSueldo");
+
+    let valorAporteEmpleador = calcularAporteEmpleador(sueldo);
+
+    rol = {};
+    rol.cedula = cedula;
+    rol.nombre = nombre;
+    rol.sueldo = sueldo;
+    rol.valorAPagar = valorAPagar;
+    rol.aporteEmpleado = aporteEmpleado;
+    rol.aporteEmpleador = valorAporteEmpleador;
+
+    agregarRol(rol);
+
+    habilitarComponente("btnBuscar");
+    deshabilitarComponente("btnGuardarRol");
+    deshabilitarComponente("btnCalcular");
+    mostrarTextoEnCaja("txtBusquedaCedulaRol","");
+    mostrarTextoDiv("infoCedula","");
+    mostrarTextoDiv("infoNombre","");
+    mostrarTextoDiv("infoSueldo","");
+    mostrarTextoEnCaja("txtDescuentos",0)
+    mostrarTextoDiv("infoIESS","0.0");
+    mostrarTextoDiv("infoPago","0.0");
+}
+
+
+/* Reto 50 Paso C: Crear la funcion calcularAporteEmpleador  */
+
+calcularAporteEmpleador = function(sueldo){
+    let valorEmpleadorIess = sueldo * 0.1115;
+    return valorEmpleadorIess;
+}
+
+/* Reto 50 Paso B: agregar el objeto al arreglo si no existe un numero de cedula repetido. Mostrar el resultado */
+
+agregarRol = function(rol){
+    let rolExistente = buscarRol(rol.cedula);
+
+    if (rolExistente == null) {
+        roles.push(rol);
+        alert("Rol agregado exitosamente para la cedula: " + rol.cedula);
+    } else {
+        alert("Ya existe un rol para la cedula: " + rol.cedula);
+    }
+}
+
+/* Reto 50 Paso A: Habilitar y deshabilitar el boton guardar. Crear la funcion buscarRol que busca con el numero 
+de cedula y devuelve un objeto si lo encuentra o null si no encuentra el empleado. */
+
+buscarRol = function(cedula){
+let objeto;
+let empleadoEncontrado2 = null;
+
+    for (let i=0 ; i<roles.length ; i++){
+        objeto = roles[i];
+
+        if(objeto.cedula == cedula){
+            empleadoEncontrado2 = objeto;
+            break;
+        }
+    }
+    return empleadoEncontrado2;
+}
+
 
 
 calcularRol = function(){
@@ -24,6 +99,7 @@ calcularRol = function(){
         mostrarTextoDiv("infoIESS",aporteEmpleado);
         let valorAPagar = calcularValorAPagar(sueldo,aporteEmpleado,descuentos);
         mostrarTextoDiv("infoPago",valorAPagar);
+        habilitarComponente("btnGuardarRol");
     } 
 }
 
@@ -53,7 +129,8 @@ buscarPorRol =  function(){
         mostrarTextoEnCaja("txtDescuentos",0)
         mostrarTextoDiv("infoIESS","0.0");
         mostrarTextoDiv("infoPago","0.0");
-
+        deshabilitarComponente("btnBuscar");
+        habilitarComponente("btnCalcular");
     } else {
         alert("No Existe registro de la cedula nro: " + cedula);
         mostrarTexto("infoCedula","");
@@ -353,6 +430,9 @@ mostrarOpcionRol = function(){
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol");
+    deshabilitarComponente("btnCalcular");
+
 }
 
 mostrarOpcionResumen = function(){
